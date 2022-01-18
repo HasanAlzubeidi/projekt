@@ -8,7 +8,7 @@ Commands för soundgood applikation
 
 help:  visar alla commands
 
-list <typ av instrument>:  visar alla instrument av ett visst typ som finns tillgängliga för att hyras
+list <typ av instrument> :  visar alla instrument av ett visst typ som finns tillgängliga för att hyras
   
 ensemble:  visar alla ensemble: lektioner som kommer hållas nästa vecka
   
