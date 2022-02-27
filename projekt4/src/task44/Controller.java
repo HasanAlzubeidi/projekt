@@ -22,6 +22,7 @@
  */
 
 
+
 package task44;
 
 import java.util.ArrayList;
@@ -81,10 +82,17 @@ public class Controller {
     }
         
         
-    public StringBuilder ensemble1()
+    public StringBuilder ensemble1()throws  InstrumentException 
     {
     	 
-              return Db.showLesson();
+    	 try {
+             return  Db.showLesson();
+         } catch (Exception e) {
+             throw new  InstrumentException ("Unable to list instruments.", e);
+         }
+    	
+    	
+    	
          
     	
     }

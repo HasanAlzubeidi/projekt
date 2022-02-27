@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package task44;
 class CmdLine {
     private static final String PARAM_DELIMETER = " ";
@@ -116,3 +117,11 @@ class CmdLine {
         return withoutCmd.trim();
     }
 }
+
+
+
+
+
+
+
+

@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package task44;
 
 
@@ -76,7 +77,7 @@ public class DAO {
         return instruments;
     }
     
-    public void rent1(int sId, int iId)  {
+    public void rent1(int sId, int iId)throws BankDBException  {
         String failureMsg = "Could not list accounts.";
         ResultSet result = null;
         int result11 = 0;
@@ -109,13 +110,14 @@ public class DAO {
 
         connection.commit();
     } catch (SQLException sqle) {
-    	 sqle.printStackTrace();
+    	 
+    	handleException(failureMsg, sqle);
     }
         
     }
 
-    public void terminate(int sIdf, int iIdf)  {
-       
+    public void terminate(int sIdf, int iIdf) throws BankDBException  {
+    	 String failureMsg = "Could not list accounts.";
        
         int updatedRows1 = 0;
         int upp123 = 0;
@@ -144,24 +146,27 @@ public class DAO {
 
         connection.commit();
     } catch (SQLException sqle) {
-    	 sqle.printStackTrace();
+    	handleException(failureMsg, sqle);
     }
         
     }
     
     
     
-    public StringBuilder showLesson() 
+    public StringBuilder showLesson()  throws BankDBException
+    
     {
+    	 String failureMsg = "Could not list accounts.";
     	StringBuilder container = new StringBuilder();
  
     	 {
     		    try (ResultSet result1 =showAllLesson.executeQuery()) {
     		      while (result1.next()) {
     		    	  container.append("day of this month:" + result1.getString(1) + ", " + "Gener:" +  result1.getString(2) + ", " + "Status: " + result1.getString(3) + "\n" ); 
+    		    	  connection.commit();
     		      }
     		    } catch (SQLException sqle) {
-    		      System.out.println();
+    		    	handleException(failureMsg, sqle);
     		    }
     		  }
     	 return container;
@@ -173,7 +178,7 @@ public class DAO {
     
     
     
-    //hasan
+    
     
     
     private void handleException(String failureMsg, Exception cause) throws BankDBException {
